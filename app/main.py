@@ -2,15 +2,19 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import utils
+import os
 
 st.title("Data Visualization Dashboard")
 st.markdown("This dashboard allows you to visualize data with various interactive features.")
 
-# List of available datasets
+script_dir = os.path.dirname(os.path.abspath(__file__))
+print("scritp dir", script_dir)
+
+
 datasets = {
-    "Benin (Malanville)": "../data/benin-malanville.csv",
-    "Sierra Leone (Bumbuna)": "../data/sierraleone-bumbuna.csv",
-    "Togo (Dapaong QC)": "../data/togo-dapaong_qc.csv"
+    "Benin (Malanville)": os.path.join(script_dir, "../data/benin-malanville.csv"),
+    "Sierra Leone (Bumbuna)": os.path.join(script_dir, "../data/sierraleone-bumbuna.csv"),
+    "Togo (Dapaong QC)": os.path.join(script_dir, "../data/togo-dapaong_qc.csv")
 }
 
 st.sidebar.header("Customize the Dashboard")
